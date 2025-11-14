@@ -1,0 +1,103 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: vefamgemin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  discovery-service:
+    build: ./discovery-service
+    container_name: discovery_service
+    ports:
+      - "8761:8761"
+
+  gateway-service:
+    build: ./gateway-service
+    container_name: gateway_service
+    ports:
+      - "8771:8771"
+    depends_on:
+      - discovery-service
+
+  identity-service:
+    build: ./IdentityService
+    container_name: identity_service
+    ports:
+      - "9090:9090"
+    depends_on:
+      - postgres
+      - discovery-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/identityservicedb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vefam
+      jwt-secret: my-super-secret-key-that-is-very-long-and-secure
+      jwt-expiration-ms: 86400000
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+
+  inventory-service:
+    build: ./inventory-service
+    container_name: inventory_service
+    ports:
+      - "8781:8781"
+    depends_on:
+      - postgres
+      - discovery-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/inventoryservicedb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vefam
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+
+  crm-service:
+    build: ./crm-service
+    container_name: crm_service
+    ports:
+      - "8791:8791"
+    depends_on:
+      - postgres
+      - discovery-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crmservicedb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vefam
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+
+  operations-service:
+    build: ./operations-service
+    container_name: operations_service
+    ports:
+      - "8751:8751"
+    depends_on:
+      - postgres
+      - discovery-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/operationsservicedb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vefam
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+
+  reporting-service:
+    build: ./reporting-service
+    container_name: reporting_service
+    ports:
+      - "8741:8741"
+    depends_on:
+      - postgres
+      - discovery-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/reportingservicedb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: vefam
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+
+volumes:
+  postgres_data:

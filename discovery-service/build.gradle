@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    // id 'org.springframework.boot' version '3.4.3' // Version updated for consistency with other services
+    id 'org.springframework.boot' version '3.5.7'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'discovery-service'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        // mavenBom "org.springframework.cloud:spring-cloud-dependencies:2024.0.0" // Version updated for consistency
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2025.0.0"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // This is redundant with spring-boot-starter-test
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
