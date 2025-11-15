@@ -15,5 +15,3 @@ public class ReportingServiceApplication {
     }
 
 }
-
-// yoxlayin ozum gerisini edecem mlm sizi daha da yormayim coox sag olun
