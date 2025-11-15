@@ -32,7 +32,6 @@ public class ExpenseService {
     }
 
     public void deleteExpense(Long id) {
-        // Check if the expense exists before deleting
         if (!repository.existsById(id)) {
             throw new ResourceNotFoundException("Expense not found with id " + id);
         }

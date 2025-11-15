@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "business-management-api",
+		"name": "Business Management API",
+		"description": "User yaratmaq və login olmaq üçün API collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup - User 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@test.com\",\n  \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					}
+				},
+				{
+					"name": "Signup - User 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"user123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					}
+				},
+				{
+					"name": "Signup - User 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"manager@test.com\",\n  \"password\": \"manager123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					}
+				},
+				{
+					"name": "Verify - User 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@test.com\",\n  \"code\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify"
+							]
+						}
+					}
+				},
+				{
+					"name": "Verify - User 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@test.com\",\n  \"code\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify"
+							]
+						}
+					}
+				},
+				{
+					"name": "Verify - User 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"manager@test.com\",\n  \"code\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify"
+							]
+						}
+					}
+				},
+				{
+					"name": "Login - User 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@test.com\",\n  \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					}
+				},
+				{
+					"name": "Login - User 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"user123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					}
+				},
+				{
+					"name": "Login - User 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"manager@test.com\",\n  \"password\": \"manager123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					}
+				},
+				{
+					"name": "Validate Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"token\": \"YOUR_TOKEN_HERE\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:1000/api/v1/auth/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"validate"
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
+
+
